@@ -1,6 +1,8 @@
 package com.spring.reactProj.controller;
 
-import jakarta.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletRequest;
+
+import org.apache.log4j.Logger;
 import org.springframework.mobile.device.Device;
 import org.springframework.mobile.device.DeviceUtils;
 import org.springframework.stereotype.Controller;
@@ -15,18 +17,28 @@ import org.springframework.web.context.request.RequestAttributes;
 @RequestMapping("/test")
 public class TestController {
 
-    @RequestMapping("/")
+    private static final Logger log = Logger.getLogger(TestController.class);
+
+    @RequestMapping("")
     public String test (HttpServletRequest request) {
 
-        Device device = DeviceUtils.getCurrentDevice((RequestAttributes) request);
+        Device device = DeviceUtils.getCurrentDevice(request);
 
-        if(device.isNormal()) {
-            return "pc/test";
-        } else if(device.isMobile()) {
+        if (device.isNormal()) {
+
+//            log.info("Desktop");
+            return "desktop/test";
+        } else if (device.isMobile()) {
+
+//            log.info("mobile");
             return "mobile/test";
-        } else if(device.isTablet()) {
+        } else if (device.isTablet()) {
+
+//            log.info("tablet");
             return "tablet/test";
         } else {
+
+//            log.info("else");
             return "test";
         }
     }
