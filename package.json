@@ -1,5 +1,14 @@
 {
+  "name": "reactProj",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
   "dependencies": {
-    "http-proxy-middleware": "^3.0.3"
+    "http-proxy-middleware": "^3.0.3",
+    "web-vitals": "^4.2.3"
   }
 }
